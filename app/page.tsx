@@ -1,18 +1,18 @@
 import { getCVsData } from "@/services/getCVsData"
+import { LogIn } from "./components/LogIn"
+import { EditCVForm } from "./EditCVForm"
 
 export default async function App() {
-  const data = await getCVsData()
-    .then(res => res.json())
-    .catch(err => console.log(err))
+  const cv = await getCVsData()
 
   return (
-    <main>
-      <h1>OhMyJob</h1>
-
-      <section className="grid grid-cols-2 gap-2">
+    <main className="overflow-auto">
+      <LogIn />
+      <section className="grid grid-cols-3 gap-2">
         <code className="bg-slate-300 overflow-auto">
-          <pre>{JSON.stringify(data, null, 2)}</pre>
+          <pre>{JSON.stringify(cv, null, 2)}</pre>
         </code>
+        <EditCVForm cvId={"saad"} />
       </section>
     </main>
   )

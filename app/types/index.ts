@@ -1,4 +1,4 @@
-export type AccessToken = {
+export type APICredentials = {
   accessToken: string
   expiresIn: number
   refreshToken: string
